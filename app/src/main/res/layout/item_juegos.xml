@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="22dp">
+
+    <TextView
+        android:id="@+id/tvLabelNombre"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Nombre"
+        android:textStyle="bold"
+        android:textSize="18sp"
+        android:paddingBottom="2dp"/>
+
+    <TextView
+        android:id="@+id/tv_juego"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="4dp"
+        android:layout_weight="0.5"
+        android:textSize="15sp"
+        android:gravity="start"
+        />
+
+    <TextView
+        android:id="@+id/tvLabelLanzamiento"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Lanzamiento"
+        android:textStyle="bold"
+        android:textSize="18sp"
+        android:paddingBottom="2dp"/>
+
+    <TextView
+        android:id="@+id/tv_lanzamiento"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="date"
+        android:layout_margin="4dp"
+        android:layout_weight="0.5"
+        />
+
+    <TextView
+        android:id="@+id/tvLabelPrecio"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Precio"
+        android:textStyle="bold"
+        android:textSize="18sp"
+        android:paddingBottom="2dp"/>
+
+    <TextView
+        android:id="@+id/tv_precio"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="4dp"
+        android:layout_weight="0.5"
+        />
+
+    <TextView
+        android:id="@+id/tvLabelGenero"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Genero"
+        android:textStyle="bold"
+        android:textSize="18sp"
+        android:paddingBottom="2dp"/>
+
+    <TextView
+        android:id="@+id/tv_genero"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="4dp"
+        android:layout_weight="0.5"
+        />
+
+    <TextView
+        android:id="@+id/tvLabelValoracion"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Valoracion"
+        android:textStyle="bold"
+        android:textSize="18sp"
+        android:paddingBottom="2dp"/>
+
+    <TextView
+        android:id="@+id/tv_valoracion"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="4dp"
+        android:layout_weight="0.5"
+        />
+
+
+
+</LinearLayout>
