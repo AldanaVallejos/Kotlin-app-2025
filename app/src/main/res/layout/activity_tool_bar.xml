@@ -1,5 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
+<<<<<<< HEAD
 <androidx.appcompat.widget.Toolbar xmlns:android="http://schemas.android.com/apk/res/android"
+=======
+<androidx.appcompat.widget.Toolbar
+    xmlns:android="http://schemas.android.com/apk/res/android"
+>>>>>>> ec4c174befe31234fd1ce89225824396ff981ce9
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/myToolbar"
     android:layout_width="match_parent"
@@ -9,6 +14,7 @@
     app:popupTheme="@style/ThemeOverlay.AppCompat.Light">
 
 
+<<<<<<< HEAD
     <ImageButton
         android:id="@+id/btn_ToolBar_Volver"
         android:layout_width="wrap_content"
@@ -25,6 +31,16 @@
         android:layout_gravity="end|center_vertical"
         android:background="?attr/selectableItemBackgroundBorderless"
         android:src="@drawable/icon_menu"
+=======
+    <Button
+        android:id="@+id/btn_ToolBar"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_gravity="start|center_vertical"
+        android:background="?attr/selectableItemBackground"
+        android:text="Atrás"
+        android:textColor="@android:color/white"
+>>>>>>> ec4c174befe31234fd1ce89225824396ff981ce9
         android:paddingHorizontal="12dp" />
 
 

@@ -12,9 +12,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Tpgrupallllllllllll">
         <activity
+<<<<<<< HEAD
             android:name=".ToolbarActivity_Menu"
             android:exported="false" />
         <activity
+=======
+>>>>>>> ec4c174befe31234fd1ce89225824396ff981ce9
             android:name=".DetalleJuegoActivity"
             android:exported="false" />
         <activity
