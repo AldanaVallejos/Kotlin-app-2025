@@ -40,6 +40,11 @@ class RegistroActivity : AppCompatActivity() {
                 Toast.makeText(this, "Usuario $nombre registrado correctamente", Toast.LENGTH_LONG)
                     .show()
                 val intent = Intent(this, ListadoJuegos::class.java)
+                // Guardar usuario en SharedPreferences FUNCIONAMIENTO REGISTRO
+                val prefs = getSharedPreferences("usuariosApp", MODE_PRIVATE)
+                val editor = prefs.edit()
+                editor.putString(email, password) // clave = email, valor = password
+                editor.apply()
                 startActivity(intent)
 
             }
