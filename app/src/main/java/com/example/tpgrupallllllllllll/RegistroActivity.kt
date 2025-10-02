@@ -2,6 +2,10 @@ package com.example.tpgrupallllllllllll
 
 import android.content.Intent
 import android.os.Bundle
+import android.view.View
+import android.widget.Button
+import android.widget.EditText
+import android.widget.ImageButton
 import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
@@ -24,7 +28,11 @@ class RegistroActivity : AppCompatActivity() {
         }
 
 
+        // CONFIGURAR TOOLBAR
+
+
         //TOOLBAR
+
         val toolbar: Toolbar = findViewById(R.id.myToolbar)
         setSupportActionBar(toolbar)
         supportActionBar?.setDisplayShowTitleEnabled(false)
@@ -35,12 +43,16 @@ class RegistroActivity : AppCompatActivity() {
         }
 
 
+        // OCULTAR BOTÓN DE MENÚ
+        val menuButton = findViewById<ImageButton>(R.id.btn_ToolBar_Menu)
+        menuButton.visibility = View.GONE
 
-
+        // REFERENCIAS DEL FORMULARIO
 
 
 
         // Referencias
+
         val etNombre = findViewById<EditText>(R.id.etNombre)
         val etEmail = findViewById<EditText>(R.id.etEmail)
         val etPassword = findViewById<EditText>(R.id.etPassword)
@@ -67,6 +79,12 @@ class RegistroActivity : AppCompatActivity() {
                 editor.putString(email, password) // clave = email, valor = password
                 editor.apply()
                 startActivity(intent)
+            }
+        }  
+    }
+}
+
+
             }
 
 

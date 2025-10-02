@@ -1,6 +1,10 @@
 package com.example.tpgrupallllllllllll
 
 import Juego
+import android.content.Intent
+import android.os.Bundle
+import android.widget.ImageButton
+import android.widget.PopupMenu
 import android.os.Bundle
 import android.widget.Button
 import android.widget.TextView
@@ -9,6 +13,8 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+
+class DetalleJuegoActivity : AppCompatActivity() {
 import androidx.recyclerview.widget.RecyclerView
 import android.widget.ImageButton
 
@@ -19,17 +25,50 @@ class DetalleJuegoActivity : AppCompatActivity() {
         enableEdgeToEdge()
         setContentView(R.layout.activity_detalle_juego)
 
+        // Ajuste de paddings para edge-to-edge
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
 
+        // TOOLBAR
 
         //TOOLBAR
         val toolbar: Toolbar = findViewById(R.id.myToolbar)
         setSupportActionBar(toolbar)
         supportActionBar?.setDisplayShowTitleEnabled(false)
+        
+        // Botón atrás
+        val backButton = findViewById<ImageButton>(R.id.btn_ToolBar_Volver)
+        backButton.setOnClickListener {
+            onBackPressedDispatcher.onBackPressed()
+        }
+
+        // Botón menú desplegable
+        val menuButton = findViewById<ImageButton>(R.id.btn_ToolBar_Menu)
+        menuButton.setOnClickListener { view ->
+            val popupMenu = PopupMenu(this, view)
+            popupMenu.menu.add("Cerrar sesión")
+            popupMenu.setOnMenuItemClickListener { item ->
+                if (item.title == "Cerrar sesión") {
+                    val prefs = getSharedPreferences("myPrefs", MODE_PRIVATE)
+                    prefs.edit().putString("user", "").apply()
+                    finishAffinity()
+                   // startActivity(Intent(this, loginActivity::class.java)) -> VOLVER A LA PANTALLA INICIAL
+                }
+                true
+            }
+            popupMenu.show()
+        }
+
+        // Mostrar datos del juego
+        val juego = intent.getSerializableExtra("juego") as Juego
+
+        lateinit var toolbarBackButton: Button
+        toolbarBackButton = findViewById(R.id.btn_ToolBar)
+        toolbarBackButton.setOnClickListener {
+            onBackPressed()
 
         val backButton = findViewById<ImageButton>(R.id.btn_ToolBar_Volver)
         backButton.setOnClickListener {
@@ -49,4 +88,3 @@ class DetalleJuegoActivity : AppCompatActivity() {
         findViewById<TextView>(R.id.tvDetalleGenero).text = juego.genero
         findViewById<TextView>(R.id.tvDetalleValoracion).text = juego.valoracion
     }
-}
