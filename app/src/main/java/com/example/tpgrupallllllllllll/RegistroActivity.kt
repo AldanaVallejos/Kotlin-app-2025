@@ -61,6 +61,11 @@ class RegistroActivity : AppCompatActivity() {
                 var nuevoUsuario = Usuario(nombre,email,password)
                 AppDatabase.getDatabase(applicationContext).UsuarioDao().insert(nuevoUsuario)
                 val intent = Intent(this, ListadoJuegos::class.java)
+                // Guardar usuario en SharedPreferences FUNCIONAMIENTO REGISTRO
+                val prefs = getSharedPreferences("usuariosApp", MODE_PRIVATE)
+                val editor = prefs.edit()
+                editor.putString(email, password) // clave = email, valor = password
+                editor.apply()
                 startActivity(intent)
             }
 

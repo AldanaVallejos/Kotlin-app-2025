@@ -46,6 +46,32 @@ class LoginActivity : AppCompatActivity() {
 
         // INCORPORACION DEL FUNCIONAMIENTO LOGIN
         btnIrListadoJuegos.setOnClickListener {
+            // sharedpreferences
+            val prefs = getSharedPreferences("usuariosApp", MODE_PRIVATE)
+            val usuarioIngresado = etUsuario.text.toString().trim()
+            val passwordIngresado = etPassword.text.toString().trim()
+
+            //INCORPORACION DEL FUNCIONAMIENTO REGISTRO
+            // Verificar si existe en SharedPreferences
+            val passwordGuardado = prefs.getString(usuarioIngresado, null)
+
+            if(passwordGuardado != null && passwordGuardado == passwordIngresado){
+                // Guardar usuario si se marcó "recordar"
+                val editor = prefs.edit()
+                if(cbRecordarUsuario.isChecked){
+                    editor.putString("usuario", usuarioIngresado)
+                    editor.putBoolean("recordar", true)
+                } else {
+                    editor.putString("usuario", "")
+                    editor.putBoolean("recordar", false)
+                }
+                editor.apply()
+
+                // Login correcto
+                val intent = Intent(this, ListadoJuegos::class.java)
+                startActivity(intent)
+                finish()
+                
             val usuarioIngresado = etUsuario.text.toString().trim()
             val passwordIngresado = etPassword.text.toString().trim()
             val editor = prefs.edit()
