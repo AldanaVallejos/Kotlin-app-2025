@@ -16,6 +16,6 @@ ENTREGA UNO
 - Marcos Maggiotti (Funcionalidad: Lista de juegos)
 - Santiago Saitz (Funcionalidad: Detalles de juegos)
 
-- ENTREGA DOS
+ENTREGA DOS
 - Santiago Saitz (Funcionalidad: Menu y barra superior, base de datos, utilizar iconos con imagenes nativas de android)
 - Aldana Vallejos (Funcionalidad: Funcionamiento del login, Funcionamiento del registro, base de datos, incorporar funcionamiento "Recordar Usuario" con SharedPreferences)
