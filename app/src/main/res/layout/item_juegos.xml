@@ -2,8 +2,16 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:layout_marginBottom="22dp">
+    android:layout_height="match_parent"
+    android:background="@drawable/fondolistaa">
+
+    <ImageView
+        android:id="@+id/imgJuego"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:scaleType="centerCrop"
+        android:src="@drawable/ic_launcher_foreground"
+        android:layout_margin="10dp"/>
 
     <TextView
         android:id="@+id/tvLabelNombre"
@@ -12,7 +20,8 @@
         android:text="Nombre"
         android:textStyle="bold"
         android:textSize="18sp"
-        android:paddingBottom="2dp"/>
+        android:paddingBottom="2dp"
+        android:layout_gravity="center"/>
 
     <TextView
         android:id="@+id/tv_juego"
@@ -20,8 +29,8 @@
         android:layout_height="wrap_content"
         android:layout_margin="4dp"
         android:layout_weight="0.5"
-        android:textSize="15sp"
-        android:gravity="start"
+        android:textSize="45sp"
+        android:gravity="center"
         />
 
     <TextView
@@ -30,8 +39,9 @@
         android:layout_height="wrap_content"
         android:text="Lanzamiento"
         android:textStyle="bold"
-        android:textSize="18sp"
-        android:paddingBottom="2dp"/>
+        android:textSize="15sp"
+        android:paddingBottom="2dp"
+        android:layout_gravity="center"/>
 
     <TextView
         android:id="@+id/tv_lanzamiento"
@@ -40,6 +50,8 @@
         android:inputType="date"
         android:layout_margin="4dp"
         android:layout_weight="0.5"
+        android:textSize="20sp"
+        android:gravity="center"
         />
 
     <TextView
@@ -48,8 +60,9 @@
         android:layout_height="wrap_content"
         android:text="Precio"
         android:textStyle="bold"
-        android:textSize="18sp"
-        android:paddingBottom="2dp"/>
+        android:textSize="15sp"
+        android:paddingBottom="2dp"
+        android:layout_gravity="center"/>
 
     <TextView
         android:id="@+id/tv_precio"
@@ -57,6 +70,8 @@
         android:layout_height="wrap_content"
         android:layout_margin="4dp"
         android:layout_weight="0.5"
+        android:textSize="20sp"
+        android:gravity="center"
         />
 
     <TextView
@@ -65,8 +80,9 @@
         android:layout_height="wrap_content"
         android:text="Genero"
         android:textStyle="bold"
-        android:textSize="18sp"
-        android:paddingBottom="2dp"/>
+        android:textSize="15sp"
+        android:paddingBottom="2dp"
+        android:layout_gravity="center"/>
 
     <TextView
         android:id="@+id/tv_genero"
@@ -74,6 +90,8 @@
         android:layout_height="wrap_content"
         android:layout_margin="4dp"
         android:layout_weight="0.5"
+        android:textSize="20sp"
+        android:gravity="center"
         />
 
     <TextView
@@ -82,17 +100,17 @@
         android:layout_height="wrap_content"
         android:text="Valoracion"
         android:textStyle="bold"
-        android:textSize="18sp"
-        android:paddingBottom="2dp"/>
+        android:textSize="15sp"
+        android:paddingBottom="2dp"
+        android:layout_gravity="center"/>
 
     <TextView
         android:id="@+id/tv_valoracion"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="4dp"
+        android:layout_height="32dp"
         android:layout_weight="0.5"
-        />
-
+        android:gravity="center"
+        android:textSize="20sp" />
 
 
 </LinearLayout>
