@@ -57,9 +57,11 @@ class RegistroActivity : AppCompatActivity() {
             } else {
                 Toast.makeText(this, "Usuario $nombre registrado correctamente", Toast.LENGTH_LONG)
                     .show()
+                //IMPLEMENTACION BASE DE DATOS
+                var nuevoUsuario = Usuario(nombre,email,password)
+                AppDatabase.getDatabase(applicationContext).UsuarioDao().insert(nuevoUsuario)
                 val intent = Intent(this, ListadoJuegos::class.java)
                 startActivity(intent)
-
             }
 
 
