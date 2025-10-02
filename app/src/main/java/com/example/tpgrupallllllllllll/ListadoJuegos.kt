@@ -10,6 +10,7 @@ import androidx.appcompat.widget.Toolbar
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.recyclerview.widget.RecyclerView
+import android.widget.ImageButton
 
 
 class ListadoJuegos : AppCompatActivity() {
@@ -30,16 +31,16 @@ class ListadoJuegos : AppCompatActivity() {
         juegosAdapter = JuegoAdapter(getJuegos(), context = this)
         rvJuegos.adapter = juegosAdapter
 
+
+        //TOOLBAR
         val toolbar: Toolbar = findViewById(R.id.myToolbar)
         setSupportActionBar(toolbar)
         supportActionBar?.setDisplayShowTitleEnabled(false)
 
-        lateinit var toolbarBackButton: Button
-        toolbarBackButton = findViewById(R.id.btn_ToolBar)
-        toolbarBackButton.setOnClickListener {
-            onBackPressed()
+        val backButton = findViewById<ImageButton>(R.id.btn_ToolBar_Volver)
+        backButton.setOnClickListener {
+            onBackPressedDispatcher.onBackPressed()
         }
-
 
         }
     private fun getJuegos(): MutableList<Juego> {

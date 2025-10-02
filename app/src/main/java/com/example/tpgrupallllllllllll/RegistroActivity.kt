@@ -10,6 +10,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import android.widget.ImageButton
 
 class RegistroActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -21,6 +22,23 @@ class RegistroActivity : AppCompatActivity() {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
+
+
+        //TOOLBAR
+        val toolbar: Toolbar = findViewById(R.id.myToolbar)
+        setSupportActionBar(toolbar)
+        supportActionBar?.setDisplayShowTitleEnabled(false)
+
+        val backButton = findViewById<ImageButton>(R.id.btn_ToolBar_Volver)
+        backButton.setOnClickListener {
+            onBackPressedDispatcher.onBackPressed()
+        }
+
+
+
+
+
+
 
         // Referencias
         val etNombre = findViewById<EditText>(R.id.etNombre)
@@ -44,15 +62,6 @@ class RegistroActivity : AppCompatActivity() {
 
             }
 
-            val toolbar: Toolbar = findViewById(R.id.myToolbar)
-            setSupportActionBar(toolbar)
-            supportActionBar?.setDisplayShowTitleEnabled(false)
-
-            lateinit var toolbarBackButton: Button
-            toolbarBackButton = findViewById(R.id.btn_ToolBar)
-            toolbarBackButton.setOnClickListener {
-                onBackPressed()
-            }
 
 
         }
