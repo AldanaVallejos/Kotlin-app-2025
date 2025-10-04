@@ -6,4 +6,6 @@ data class Juego(
     var genero: String,
     var precio: String,
     var valoracion: String,
+    val id: Int,
+    val imagen: Int,
 ) : Serializable
