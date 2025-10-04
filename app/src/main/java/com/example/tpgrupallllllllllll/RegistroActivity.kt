@@ -2,6 +2,7 @@ package com.example.tpgrupallllllllllll
 
 import android.content.Intent
 import android.os.Bundle
+import android.view.View
 import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
@@ -10,6 +11,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import android.widget.ImageButton
 
 class RegistroActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -22,7 +24,32 @@ class RegistroActivity : AppCompatActivity() {
             insets
         }
 
+
+        // CONFIGURAR TOOLBAR
+
+
+        //TOOLBAR
+
+        val toolbar: Toolbar = findViewById(R.id.myToolbar)
+        setSupportActionBar(toolbar)
+        supportActionBar?.setDisplayShowTitleEnabled(false)
+
+        val backButton = findViewById<ImageButton>(R.id.btn_ToolBar_Volver)
+        backButton.setOnClickListener {
+            onBackPressedDispatcher.onBackPressed()
+        }
+
+
+        // OCULTAR BOTÓN DE MENÚ
+        val menuButton = findViewById<ImageButton>(R.id.btn_ToolBar_Menu)
+        menuButton.visibility = View.GONE
+
+        // REFERENCIAS DEL FORMULARIO
+
+
+
         // Referencias
+
         val etNombre = findViewById<EditText>(R.id.etNombre)
         val etEmail = findViewById<EditText>(R.id.etEmail)
         val etPassword = findViewById<EditText>(R.id.etPassword)
@@ -43,21 +70,11 @@ class RegistroActivity : AppCompatActivity() {
                 var nuevoUsuario = Usuario(nombre,email,password)
                 AppDatabase.getDatabase(applicationContext).UsuarioDao().insert(nuevoUsuario)
                 val intent = Intent(this, ListadoJuegos::class.java)
+                // Guardar usuario en SharedPreferences FUNCIONAMIENTO REGISTRO
+                val prefs = getSharedPreferences("usuariosApp", MODE_PRIVATE)
+                val editor = prefs.edit()
+                editor.putString(email, password) // clave = email, valor = password
+                editor.apply()
                 startActivity(intent)
-            }
-
-            val toolbar: Toolbar = findViewById(R.id.myToolbar)
-            setSupportActionBar(toolbar)
-            supportActionBar?.setDisplayShowTitleEnabled(false)
-
-            lateinit var toolbarBackButton: Button
-            toolbarBackButton = findViewById(R.id.btn_ToolBar)
-            toolbarBackButton.setOnClickListener {
-                onBackPressed()
-            }
-
-
-        }
     }
-
 }

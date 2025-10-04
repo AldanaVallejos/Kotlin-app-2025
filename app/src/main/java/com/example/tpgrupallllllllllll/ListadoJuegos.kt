@@ -2,14 +2,13 @@ package com.example.tpgrupallllllllllll
 
 import Juego
 import android.os.Bundle
-import android.widget.Button
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.recyclerview.widget.RecyclerView
-
+import android.widget.ImageButton
 
 class ListadoJuegos : AppCompatActivity() {
     lateinit var rvJuegos: RecyclerView
@@ -19,6 +18,15 @@ class ListadoJuegos : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContentView(R.layout.activity_listado_juegos)
+
+        // Ajuste de paddings para edge-to-edge
+        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
+            val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
+            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
+            insets
+        }
+
+        // RecyclerView
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
@@ -29,16 +37,37 @@ class ListadoJuegos : AppCompatActivity() {
         juegosAdapter = JuegoAdapter(getJuegos(), context = this)
         rvJuegos.adapter = juegosAdapter
 
+
+        // TOOLBAR
+
+        //TOOLBAR
         val toolbar: Toolbar = findViewById(R.id.myToolbar)
         setSupportActionBar(toolbar)
         supportActionBar?.setDisplayShowTitleEnabled(false)
 
-        lateinit var toolbarBackButton: Button
-        toolbarBackButton = findViewById(R.id.btn_ToolBar)
-        toolbarBackButton.setOnClickListener {
-            onBackPressed()
+        // Botón atrás
+        val backButton = findViewById<ImageButton>(R.id.btn_ToolBar_Volver)
+        backButton.setOnClickListener {
+            onBackPressedDispatcher.onBackPressed()
         }
 
+        // Botón menú desplegable
+        val menuButton = findViewById<ImageButton>(R.id.btn_ToolBar_Menu)
+        menuButton.setOnClickListener { view ->
+            val popupMenu = PopupMenu(this, view)
+            popupMenu.menu.add("Cerrar sesión")
+            popupMenu.setOnMenuItemClickListener { item ->
+                if (item.title == "Cerrar sesión") {
+                    val prefs = getSharedPreferences("myPrefs", MODE_PRIVATE)
+                    prefs.edit().putString("user", "").apply()
+                    finishAffinity()
+                   //  startActivity(Intent(this, MainActivity::class.java)) -> VOLVER A LA PANTALLA INICIAL
+                }
+                true
+            }
+            popupMenu.show()
+        }
+    }
 
         }
     private fun getJuegos(): MutableList<Juego> {
@@ -101,4 +130,4 @@ class ListadoJuegos : AppCompatActivity() {
             imagen = R.drawable.undertale))
         return juegos
     }
-    }
+
