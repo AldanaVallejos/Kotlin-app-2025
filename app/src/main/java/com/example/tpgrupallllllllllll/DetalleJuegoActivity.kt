@@ -1,11 +1,9 @@
 package com.example.tpgrupallllllllllll
 
 import Juego
-import android.content.Intent
 import android.os.Bundle
 import android.widget.ImageButton
 import android.widget.PopupMenu
-import android.os.Bundle
 import android.widget.Button
 import android.widget.TextView
 import androidx.activity.enableEdgeToEdge
@@ -15,11 +13,6 @@ import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 
 class DetalleJuegoActivity : AppCompatActivity() {
-import androidx.recyclerview.widget.RecyclerView
-import android.widget.ImageButton
-
-class DetalleJuegoActivity : AppCompatActivity() {
-    lateinit var myToolbar: Toolbar
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
@@ -33,12 +26,10 @@ class DetalleJuegoActivity : AppCompatActivity() {
         }
 
         // TOOLBAR
-
-        //TOOLBAR
         val toolbar: Toolbar = findViewById(R.id.myToolbar)
         setSupportActionBar(toolbar)
         supportActionBar?.setDisplayShowTitleEnabled(false)
-        
+
         // Botón atrás
         val backButton = findViewById<ImageButton>(R.id.btn_ToolBar_Volver)
         backButton.setOnClickListener {
@@ -55,7 +46,6 @@ class DetalleJuegoActivity : AppCompatActivity() {
                     val prefs = getSharedPreferences("myPrefs", MODE_PRIVATE)
                     prefs.edit().putString("user", "").apply()
                     finishAffinity()
-                   // startActivity(Intent(this, loginActivity::class.java)) -> VOLVER A LA PANTALLA INICIAL
                 }
                 true
             }
@@ -65,26 +55,16 @@ class DetalleJuegoActivity : AppCompatActivity() {
         // Mostrar datos del juego
         val juego = intent.getSerializableExtra("juego") as Juego
 
-        lateinit var toolbarBackButton: Button
-        toolbarBackButton = findViewById(R.id.btn_ToolBar)
-        toolbarBackButton.setOnClickListener {
-            onBackPressed()
-
-        val backButton = findViewById<ImageButton>(R.id.btn_ToolBar_Volver)
-        backButton.setOnClickListener {
-            onBackPressedDispatcher.onBackPressed()
-        }
-
-
-
-
-
-
-        val juego = intent.getSerializableExtra("juego") as Juego
-
         findViewById<TextView>(R.id.tvDetalleNombre).text = juego.juego
         findViewById<TextView>(R.id.tvDetalleFecha).text = juego.lanzamiento
         findViewById<TextView>(R.id.tvDetallePrecio).text = juego.precio
         findViewById<TextView>(R.id.tvDetalleGenero).text = juego.genero
         findViewById<TextView>(R.id.tvDetalleValoracion).text = juego.valoracion
+
+        val toolbarBackButton = findViewById<Button>(R.id.btn_ToolBar)
+        toolbarBackButton.setOnClickListener {
+            onBackPressedDispatcher.onBackPressed()
+        }
     }
+}
+

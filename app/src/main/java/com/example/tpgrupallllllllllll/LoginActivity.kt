@@ -7,7 +7,6 @@ import android.widget.CheckBox
 import android.widget.EditText
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
-import androidx.appcompat.widget.Toolbar
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import android.widget.Toast
@@ -70,35 +69,7 @@ class LoginActivity : AppCompatActivity() {
                 // Login correcto
                 val intent = Intent(this, ListadoJuegos::class.java)
                 startActivity(intent)
-                finish()
-                
-            val usuarioIngresado = etUsuario.text.toString().trim()
-            val passwordIngresado = etPassword.text.toString().trim()
-            val editor = prefs.edit()
 
-            // Ejemplo de usuarios momentaneamente
-            val usuarios = hashMapOf(
-                "usuario1" to "123",
-                "usuario2" to "123",
-                "admin" to "1234"
-            )
-
-            // Validación
-            if(usuarios.containsKey(usuarioIngresado) && usuarios[usuarioIngresado] == passwordIngresado) {
-                // Guardar usuario si se marcó "recordar"
-                if(cbRecordarUsuario.isChecked){
-                    editor.putString("usuario", usuarioIngresado)
-                    editor.putBoolean("recordar", true)
-                } else {
-                    editor.putString("usuario", "")
-                    editor.putBoolean("recordar", false)
-                }
-                editor.apply()
-
-                // Si el login es correcto, va al listado
-                val intent = Intent(this, ListadoJuegos::class.java)
-                startActivity(intent)
-                finish() // se cierra el login
             } else {
                 // Login incorrecto
                 Toast.makeText(this, "Usuario o contraseña incorrectos", Toast.LENGTH_SHORT).show()

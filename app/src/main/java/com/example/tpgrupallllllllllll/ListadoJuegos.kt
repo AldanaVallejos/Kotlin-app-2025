@@ -4,11 +4,11 @@ import Juego
 import android.os.Bundle
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
-import androidx.appcompat.widget.Toolbar
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.recyclerview.widget.RecyclerView
 import android.widget.ImageButton
+import android.widget.PopupMenu
 
 class ListadoJuegos : AppCompatActivity() {
     lateinit var rvJuegos: RecyclerView
@@ -39,11 +39,6 @@ class ListadoJuegos : AppCompatActivity() {
 
 
         // TOOLBAR
-
-        //TOOLBAR
-        val toolbar: Toolbar = findViewById(R.id.myToolbar)
-        setSupportActionBar(toolbar)
-        supportActionBar?.setDisplayShowTitleEnabled(false)
 
         // Botón atrás
         val backButton = findViewById<ImageButton>(R.id.btn_ToolBar_Volver)

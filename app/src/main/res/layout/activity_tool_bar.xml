@@ -1,5 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.appcompat.widget.Toolbar xmlns:android="http://schemas.android.com/apk/res/android"
 <androidx.appcompat.widget.Toolbar
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
@@ -7,45 +6,36 @@
     android:layout_width="match_parent"
     android:layout_height="?attr/actionBarSize"
     android:background="?attr/colorPrimary"
-    android:elevation="4dp"
+    android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
     app:popupTheme="@style/ThemeOverlay.AppCompat.Light">
-
 
     <ImageButton
         android:id="@+id/btn_ToolBar_Volver"
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
-        android:layout_gravity="start|center_vertical"
         android:background="?attr/selectableItemBackgroundBorderless"
         android:paddingHorizontal="12dp"
         android:src="@drawable/back_icon" />
+
+    <Button
+        android:id="@+id/btn_ToolBar"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:background="?attr/selectableItemBackground"
+        android:text="Atrás"
+        android:textColor="@android:color/white"
+        android:layout_marginStart="8dp"/>
+
+    <View
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1"/>
 
     <ImageButton
         android:id="@+id/btn_ToolBar_Menu"
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
-        android:layout_gravity="end|center_vertical"
         android:background="?attr/selectableItemBackgroundBorderless"
         android:src="@drawable/icon_menu"
-    <Button
-        android:id="@+id/btn_ToolBar"
-        android:layout_width="wrap_content"
-        android:layout_height="match_parent"
-        android:layout_gravity="start|center_vertical"
-        android:background="?attr/selectableItemBackground"
-        android:text="Atrás"
-        android:textColor="@android:color/white"
-
-    <ImageButton
-        android:id="@+id/btn_ToolBar_Volver"
-        android:layout_width="wrap_content"
-        android:layout_height="match_parent"
-        android:layout_gravity="start|center_vertical"
-        android:background="?attr/selectableItemBackgroundBorderless"
-        android:src="@drawable/back_icon"
-        android:paddingHorizontal="12dp" />
-
-
-
-
+        android:layout_gravity="end"/>
 </androidx.appcompat.widget.Toolbar>

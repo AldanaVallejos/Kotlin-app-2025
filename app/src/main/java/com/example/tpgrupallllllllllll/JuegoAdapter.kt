@@ -7,9 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
-import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
-import androidx.core.content.ContextCompat.startActivity
 
 class JuegoAdapter (var juego: MutableList<Juego>, var context: Context) : RecyclerView.Adapter<JuegoAdapter.JuegoViewHolder>(){
 
