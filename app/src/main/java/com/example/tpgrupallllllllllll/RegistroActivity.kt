@@ -4,12 +4,13 @@ import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
+import android.widget.ImageButton
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
-import androidx.appcompat.widget.Toolbar
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import android.view.View
 
 class RegistroActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -22,15 +23,23 @@ class RegistroActivity : AppCompatActivity() {
             insets
         }
 
-        // TOOLBAR
-        val toolbar: Toolbar = findViewById(R.id.myToolbar)
-        setSupportActionBar(toolbar)
-        supportActionBar?.setDisplayShowTitleEnabled(false)
 
-        val toolbarBackButton = findViewById<Button>(R.id.btn_ToolBar)
-        toolbarBackButton.setOnClickListener {
+        // TOOLBAR
+
+        // Botón atrás
+        val backButton = findViewById<ImageButton>(R.id.btn_ToolBar_Volver)
+        backButton.setOnClickListener {
             onBackPressedDispatcher.onBackPressed()
         }
+
+
+        // OCULTAR BOTÓN DE MENÚ
+        val menuButton = findViewById<ImageButton>(R.id.btn_ToolBar_Menu)
+        menuButton.visibility = View.GONE
+
+
+
+
 
         // Referencias
         val etNombre = findViewById<EditText>(R.id.etNombre)
