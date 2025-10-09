@@ -60,11 +60,5 @@ class DetalleJuegoActivity : AppCompatActivity() {
         findViewById<TextView>(R.id.tvDetallePrecio).text = juego.precio
         findViewById<TextView>(R.id.tvDetalleGenero).text = juego.genero
         findViewById<TextView>(R.id.tvDetalleValoracion).text = juego.valoracion
-
-        val toolbarBackButton = findViewById<Button>(R.id.btn_ToolBar)
-        toolbarBackButton.setOnClickListener {
-            onBackPressedDispatcher.onBackPressed()
-        }
     }
 }
-
