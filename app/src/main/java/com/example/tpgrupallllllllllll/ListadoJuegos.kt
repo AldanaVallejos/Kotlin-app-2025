@@ -64,7 +64,7 @@ class ListadoJuegos : AppCompatActivity() {
         }
     }
 
-        }
+}
     private fun getJuegos(): MutableList<Juego> {
         var juegos: MutableList<Juego> = ArrayList()
         juegos.add(Juego(
@@ -125,4 +125,3 @@ class ListadoJuegos : AppCompatActivity() {
             imagen = R.drawable.undertale))
         return juegos
     }
-
