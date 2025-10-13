@@ -2,11 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
 
-<<<<<<< HEAD
     <uses-permission android:name="android.permission.POST_NOTIFICATIONS"/>
 
-=======
->>>>>>> origin/main
     <application
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
@@ -37,14 +34,9 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-<<<<<<< HEAD
 
         <service android:name=".ServicioRecordarUsuario"
             tools:ignore="Instantiatable"/>
 
     </application>
-=======
-    </application>
-
->>>>>>> origin/main
 </manifest>
