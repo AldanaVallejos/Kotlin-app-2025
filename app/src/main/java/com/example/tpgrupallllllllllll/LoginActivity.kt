@@ -1,13 +1,9 @@
 package com.example.tpgrupallllllllllll
 
-<<<<<<< HEAD
 import android.Manifest
 import android.content.Intent
 import android.content.pm.PackageManager
 import android.os.Build
-=======
-import android.content.Intent
->>>>>>> origin/main
 import android.os.Bundle
 import android.widget.Button
 import android.widget.CheckBox
@@ -17,10 +13,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import android.widget.Toast
-<<<<<<< HEAD
 import androidx.core.app.ActivityCompat
-=======
->>>>>>> origin/main
 
 class LoginActivity : AppCompatActivity() {
     //variables
@@ -54,7 +47,6 @@ class LoginActivity : AppCompatActivity() {
             cbRecordarUsuario.isChecked = true
         }
 
-<<<<<<< HEAD
         //  CHECKBOX (PERMISOS de NOTIFICACIÓN y Servicio)
         cbRecordarUsuario.setOnClickListener {
             val activar = cbRecordarUsuario.isChecked
@@ -80,10 +72,6 @@ class LoginActivity : AppCompatActivity() {
         }
 
 
-
-
-=======
->>>>>>> origin/main
         // INCORPORACION DEL FUNCIONAMIENTO LOGIN
         btnIrListadoJuegos.setOnClickListener {
             // sharedpreferences
