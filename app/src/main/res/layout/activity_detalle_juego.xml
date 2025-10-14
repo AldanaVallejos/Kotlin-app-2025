@@ -50,5 +50,22 @@
         android:text="Valoracion"
         android:textSize="16sp" />
 
+    <androidx.fragment.app.FragmentContainerView
+        android:id="@+id/fragmentDetalleJuegoContainer"
+        android:name="com.example.tpgrupallllllllllll.DetalleJuegoFragment"
+        android:layout_width="275dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="15dp" />
+
+
+    <androidx.fragment.app.FragmentContainerView
+        android:id="@+id/fragmentInformacionContainer"
+        android:name="com.example.tpgrupallllllllllll.InformacionFragment"
+        android:layout_width="275dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="15dp" />
+
 
 </LinearLayout>
