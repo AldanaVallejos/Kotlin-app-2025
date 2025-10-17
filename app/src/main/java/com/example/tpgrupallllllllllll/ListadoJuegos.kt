@@ -1,7 +1,9 @@
 package com.example.tpgrupallllllllllll
 
 import Juego
+import android.content.Intent
 import android.os.Bundle
+import android.widget.Button
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
@@ -12,6 +14,7 @@ import android.widget.PopupMenu
 
 class ListadoJuegos : AppCompatActivity() {
     lateinit var rvJuegos: RecyclerView
+    lateinit var bntIrApi: Button
     lateinit var juegosAdapter: JuegoAdapter
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -33,6 +36,7 @@ class ListadoJuegos : AppCompatActivity() {
             return@setOnApplyWindowInsetsListener insets
         }
 
+        val btnIrApi = findViewById<Button>(R.id.btnIrApi)
         rvJuegos = findViewById(R.id.rvJuegos)
         juegosAdapter = JuegoAdapter(getJuegos(), context = this)
         rvJuegos.adapter = juegosAdapter
@@ -44,6 +48,12 @@ class ListadoJuegos : AppCompatActivity() {
         val backButton = findViewById<ImageButton>(R.id.btn_ToolBar_Volver)
         backButton.setOnClickListener {
             onBackPressedDispatcher.onBackPressed()
+        }
+
+        btnIrApi.setOnClickListener {
+            // INTENT para pasar al registro
+            val intent = Intent(this, ApiRestActivity::class.java)
+            startActivity(intent)
         }
 
         // Botón menú desplegable
