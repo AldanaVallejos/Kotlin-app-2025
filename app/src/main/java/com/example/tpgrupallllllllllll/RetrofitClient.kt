@@ -6,11 +6,10 @@ import retrofit2.Retrofit
 import retrofit2.converter.moshi.MoshiConverterFactory
 
 object RetrofitClient {
-    // NECESITAMOS CAMBIAR LA URL
-    private val baseURL = "https://store.steampowered.com/api/appdetails?appids=570"
+    private val baseURL = "https://www.freetogame.com/"
 
     private val moshi = Moshi.Builder()
-        .addLast { KotlinJsonAdapterFactory() }
+        .addLast(com.squareup.moshi.kotlin.reflect.KotlinJsonAdapterFactory())
         .build()
 
     val retrofit = Retrofit.Builder()

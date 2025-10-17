@@ -5,7 +5,13 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/blue"
+    android:padding="20dp"
     tools:context=".ApiRestActivity">
+
+    <include
+        android:id="@+id/myToolbar"
+        layout="@layout/activity_tool_bar" />
 
     <ScrollView
         android:layout_width="match_parent"

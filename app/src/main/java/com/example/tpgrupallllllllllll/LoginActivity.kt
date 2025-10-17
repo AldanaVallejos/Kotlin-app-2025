@@ -1,6 +1,9 @@
 package com.example.tpgrupallllllllllll
 
+import android.Manifest
 import android.content.Intent
+import android.content.pm.PackageManager
+import android.os.Build
 import android.os.Bundle
 import android.widget.Button
 import android.widget.CheckBox
@@ -10,6 +13,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import android.widget.Toast
+import androidx.core.app.ActivityCompat
 
 class LoginActivity : AppCompatActivity() {
     //variables
@@ -42,6 +46,31 @@ class LoginActivity : AppCompatActivity() {
             etUsuario.setText(usuarioGuardado)
             cbRecordarUsuario.isChecked = true
         }
+
+        //  CHECKBOX (PERMISOS de NOTIFICACIÓN y Servicio)
+        cbRecordarUsuario.setOnClickListener {
+            val activar = cbRecordarUsuario.isChecked
+
+            // Verificar permisos de notificación
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU &&
+                ActivityCompat.checkSelfPermission(
+                    this,
+                    Manifest.permission.POST_NOTIFICATIONS // GARANTIZA LOS PERMISOS
+                ) != PackageManager.PERMISSION_GRANTED
+            ) {
+                ActivityCompat.requestPermissions(
+                    this,
+                    arrayOf(Manifest.permission.POST_NOTIFICATIONS), // RE-PREGUNTA
+                    101
+                )
+            } else {
+                // Crear Intent con extra "activar"
+                val intent = Intent(this, ServicioRecordarUsuario::class.java)
+                intent.putExtra("activar", activar)
+                startService(intent)
+            }
+        }
+
 
         // INCORPORACION DEL FUNCIONAMIENTO LOGIN
         btnIrListadoJuegos.setOnClickListener {
