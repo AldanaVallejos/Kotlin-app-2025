@@ -63,4 +63,7 @@ dependencies {
     annotationProcessor("com.squareup.moshi:moshi-kotlin-codegen:1.14.0")
     implementation ("com.squareup.retrofit2:retrofit:2.9.0")
     implementation ("com.squareup.retrofit2:converter-moshi:2.9.0")
+    // librerias corrutinas para manejar hilos
+    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.7.3")
+    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.7.3")
 }
