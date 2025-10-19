@@ -70,7 +70,7 @@ class ApiRestActivity : AppCompatActivity() {
 
                 if (games.isNotEmpty()) {
                     // Mostrar la lista de juegos
-                    val gameListText = games.joinToString(separator = "\n\n") { game ->
+                    val gameListText = games.joinToString(separator = "\n\n") {     game ->
                         "Titulo: ${game.title ?: "N/A"}\n" +
                                 "Descripcion: ${game.short_description ?: "N/A"}\n" +
                                 "Lanzamiento: ${game.release_date ?: "N/A"}\n" +
