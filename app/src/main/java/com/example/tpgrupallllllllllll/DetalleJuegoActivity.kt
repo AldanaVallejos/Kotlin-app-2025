@@ -3,6 +3,7 @@ package com.example.tpgrupallllllllllll
 import  Juego
 import android.os.Bundle
 import android.widget.ImageButton
+import android.widget.ImageView
 import android.widget.PopupMenu
 import android.widget.TextView
 import androidx.activity.enableEdgeToEdge
@@ -53,6 +54,10 @@ class DetalleJuegoActivity : AppCompatActivity() {
 
         // Mostrar datos del juego
         val juego = intent.getSerializableExtra("juego") as Juego
+
+        //agrego la imagen
+        val imagenView = findViewById<ImageView>(R.id.ivDetalleJuegoImagen)
+        imagenView.setImageResource(juego.imagen)
 
         findViewById<TextView>(R.id.tvDetalleNombre).text = juego.juego
         findViewById<TextView>(R.id.tvDetalleFecha).text = juego.lanzamiento

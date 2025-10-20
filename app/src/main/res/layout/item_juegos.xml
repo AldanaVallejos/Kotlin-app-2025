@@ -5,15 +5,6 @@
     android:layout_height="match_parent"
     android:background="@drawable/blue">
 
-    <ImageView
-        android:id="@+id/imgJuego"
-        android:layout_width="match_parent"
-        android:layout_height="94dp"
-        android:layout_margin="10dp"
-        android:scaleType="centerCrop"
-        android:src="@drawable/ic_launcher_foreground" />
-
-
     <TextView
         android:id="@+id/tvLabelNombre"
         android:layout_width="wrap_content"
@@ -30,7 +21,6 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="4dp"
-        android:layout_weight="0.5"
         android:textColor="#CCC5C5"
         android:textStyle="italic"
         android:textSize="30sp"
@@ -55,7 +45,6 @@
         android:textColor="#CCC5C5"
         android:textStyle="italic"
         android:layout_margin="4dp"
-        android:layout_weight="0.5"
         android:textSize="30sp"
         android:gravity="center"/>
 
@@ -77,7 +66,6 @@
         android:layout_margin="4dp"
         android:textColor="#CCC5C5"
         android:textStyle="italic"
-        android:layout_weight="0.5"
         android:textSize="30sp"
         android:gravity="center"/>
 
@@ -99,7 +87,6 @@
         android:layout_margin="4dp"
         android:textColor="#CCC5C5"
         android:textStyle="italic"
-        android:layout_weight="0.5"
         android:textSize="30sp"
         android:gravity="center"/>
 
@@ -120,7 +107,6 @@
         android:layout_height="32dp"
         android:textColor="#CCC5C5"
         android:textStyle="italic"
-        android:layout_weight="0.5"
         android:gravity="center"
         android:textSize="30sp" />
 
