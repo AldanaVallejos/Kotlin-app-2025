@@ -19,3 +19,7 @@ ENTREGA UNO
 ENTREGA DOS
 - Santiago Saitz (Funcionalidad: Menu y barra superior, base de datos, utilizar iconos con imagenes nativas de android)
 - Aldana Vallejos (Funcionalidad: Funcionamiento del login, Funcionamiento del registro, base de datos, incorporar funcionamiento "Recordar Usuario" con SharedPreferences)
+
+ENTREGA TRES
+- Santiago Saitz (Funcionalidades: Incorporar el uso de Fragmentos en alguna de las pantallas, Generar una notificacion cuando se activa la opcion de Recordar Usuario).
+- Aldana Vallejos (Funcionalidades: Agregar llamado a la API REST elegida, Realizar el llamado en un hilo de ejecucion distinto).

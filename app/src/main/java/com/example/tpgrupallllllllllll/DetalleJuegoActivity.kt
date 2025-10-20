@@ -1,6 +1,6 @@
 package com.example.tpgrupallllllllllll
 
-import Juego
+import  Juego
 import android.os.Bundle
 import android.widget.ImageButton
 import android.widget.PopupMenu

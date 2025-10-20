@@ -6,5 +6,5 @@ import retrofit2.http.GET
 
 interface ApiEndpoints {
     @GET("api/games")
-    fun getDetails() : Call<List<GameDTO>>
+    suspend fun getDetails() : List<GameDTO> // ahora se retorna la lista directamente: <ListGameDTO>
 }

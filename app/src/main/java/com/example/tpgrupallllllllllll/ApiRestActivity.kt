@@ -7,9 +7,11 @@ import android.widget.PopupMenu
 import android.widget.TextView
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
+import androidx.lifecycle.lifecycleScope
 import com.example.tpgrupallllllllllll.dtos.GameDTO
-import retrofit2.Call
-import retrofit2.Response
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 
 class ApiRestActivity : AppCompatActivity() {
 
@@ -20,40 +22,17 @@ class ApiRestActivity : AppCompatActivity() {
         enableEdgeToEdge()
         setContentView(R.layout.activity_api_rest)
 
-        // inicializar el TextView
+        //Inicializar para mostrar los datos
         tvServicioRest = findViewById(R.id.tvServicioRest)
-        tvServicioRest.text = "Cargando datos..." // Mensaje de carga inicial
+        tvServicioRest.text = "Cargando datos..."
 
-        // Ejecutar la llamada API
-        val api = RetrofitClient.retrofit.create(ApiEndpoints::class.java)
-        val callGetDetails = api.getDetails()
+        // 1. Iniciar la llamada API usando corrutinas
+        fetchGamesWithCoroutines()
 
-        callGetDetails.enqueue(object : retrofit2.Callback<List<GameDTO>> {
-            override fun onResponse(call: Call<List<GameDTO>>, response: Response<List<GameDTO>>) {
-                if (response.isSuccessful) {
-                    val games = response.body()
-
-                    if (games != null && games.isNotEmpty()) {
-                        // Mostrar la lista de juegos
-                        val gameListText = games.joinToString(separator = "\n\n") { game ->
-                            "Titulo: ${game.title}\n" +
-                                    "Descripcion: ${game.short_description}\n" +
-                                    "Lanzamiento: ${game.release_date}\n" +
-                                    "Desarrollador: ${game.developer}\n" +
-                                    "Genero: ${game.genre}\n" +
-                                    "Plataforma: ${game.platform}"
-                        }
-                        tvServicioRest.text = gameListText // Actualiza el TextView con los datos
-                    }
-                }
-            }
-
-            override fun onFailure(call: Call<List<GameDTO>>, t: Throwable) {
-                Log.e("Error", t.message ?:"Error.")
-            }
-        })
-        // TOOLBAR
-
+        //TOOLBAR
+        setupToolbar()
+    }
+    private fun setupToolbar() {
         // Botón atrás
         val backButton = findViewById<ImageButton>(R.id.btn_ToolBar_Volver)
         backButton.setOnClickListener {
@@ -75,8 +54,39 @@ class ApiRestActivity : AppCompatActivity() {
             }
             popupMenu.show()
         }
+    }
 
+    // Nueva funcion para manejar corrutinas
+    private fun fetchGamesWithCoroutines() {
+        // lifecycleScope.launch para iniciar la corrutina en el hilo principal
+        lifecycleScope.launch {
+            try {
+                // Mover la ejecucion al hilo
+                val games: List<GameDTO> = withContext(Dispatchers.IO) {
+                    val api = RetrofitClient.retrofit.create(ApiEndpoints::class.java)
+                    // Llamada a la funcion 'suspend' de Retrofit
+                    api.getDetails()
+                }
 
+                if (games.isNotEmpty()) {
+                    // Mostrar la lista de juegos
+                    val gameListText = games.joinToString(separator = "\n\n") {     game ->
+                        "Titulo: ${game.title ?: "N/A"}\n" +
+                                "Descripcion: ${game.short_description ?: "N/A"}\n" +
+                                "Lanzamiento: ${game.release_date ?: "N/A"}\n" +
+                                "Desarrollador: ${game.developer ?: "N/A"}\n" +
+                                "Genero: ${game.genre ?: "N/A"}\n" +
+                                "Plataforma: ${game.platform ?: "N/A"}"
+                    }
+                    tvServicioRest.text = gameListText
+                    Log.d("API_Coroutines", "Datos cargados correctamente.")
+                } else {
+                    tvServicioRest.text = "La lista de juegos está vacía."
+                }
 
+            } catch (e: Exception) {
+                Log.e("API_Coroutines", "Fallo al obtener datos")
+            }
+        }
     }
 }

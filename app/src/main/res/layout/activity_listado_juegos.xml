@@ -19,7 +19,9 @@
         android:layout_height="wrap_content"
         android:layout_margin="10dp"
         android:text="Lista de Juegos"
-        android:textSize="20sp"
+        android:textSize="25sp"
+        android:textStyle="bold"
+        android:textColor="#ABA2A2"
         android:gravity="start"/>
 
     <androidx.recyclerview.widget.RecyclerView

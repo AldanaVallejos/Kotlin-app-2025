@@ -21,6 +21,7 @@
         android:layout_gravity="center"
         android:text="STEAM API"
         android:textSize="27sp"
+        android:textColor="#ABA2A2"
         android:layout_marginBottom="20dp"
         android:textStyle="bold" />
 
@@ -29,6 +30,7 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:text="Ingresar Usuario"
+        android:textColor="#CCC5C5"
         android:textSize="15sp"
         android:layout_marginBottom="10dp" />
 
@@ -40,12 +42,16 @@
         android:layout_marginBottom="20dp"
         android:textSize="15sp"
         android:hint="nombre de usuario"
+        android:textColor="#9B9292"
+        android:textColorHint="#817F7F"
+        android:textAlignment="center"
         android:padding="12dp" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
+        android:textColor="#CCC5C5"
         android:text="Ingresar Contraseña"
         android:textSize="15sp"
         android:layout_marginBottom="10dp" />
@@ -58,6 +64,9 @@
         android:layout_marginBottom="20dp"
         android:textSize="15sp"
         android:hint="contraseña"
+        android:textColor="#9B9292"
+        android:textColorHint="#817F7F"
+        android:textAlignment="center"
         android:inputType="textPassword"
         android:padding="12dp" />
 
@@ -66,6 +75,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Recordar usuario"
+        android:textColor="#CCC5C5"
         android:layout_gravity="center"
         android:layout_marginBottom="20dp" />
 

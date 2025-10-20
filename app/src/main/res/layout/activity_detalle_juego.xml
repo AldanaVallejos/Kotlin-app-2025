@@ -17,38 +17,47 @@
         android:id="@+id/tvDetalleNombre"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Nombre"
-        android:textStyle="bold"
+        android:text="Nombre: "
         android:textSize="18sp"
-        android:paddingBottom="24dp"/>
+        android:textColor="#CCC5C5"
+        android:textStyle="italic"
+        android:paddingTop="18dp"
+        android:paddingBottom="25dp"/>
 
     <TextView
         android:id="@+id/tvDetalleFecha"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Fecha"
+        android:text="Fecha: "
+        android:textColor="#CCC5C5"
+        android:textStyle="italic"
         android:textSize="16sp"/>
 
     <TextView
         android:id="@+id/tvDetallePrecio"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Precio"
+        android:text="Precio: "
+        android:textColor="#CCC5C5"
+        android:textStyle="italic"
         android:textSize="16sp"/>
 
     <TextView
         android:id="@+id/tvDetalleGenero"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Genero"
+        android:text="Género: "
+        android:textColor="#CCC5C5"
+        android:textStyle="italic"
         android:textSize="16sp"/>
 
     <TextView
         android:id="@+id/tvDetalleValoracion"
         android:layout_width="wrap_content"
         android:layout_height="28dp"
-        android:text="Valoracion"
-        android:textSize="16sp" />
+        android:textSize="16sp"
+        android:textColor="#CCC5C5"
+        android:textStyle="italic"/>
 
     <androidx.fragment.app.FragmentContainerView
         android:id="@+id/fragmentDetalleJuegoContainer"
@@ -56,7 +65,7 @@
         android:layout_width="275dp"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:layout_marginTop="15dp" />
+        android:layout_marginTop="10dp" />
 
 
     <androidx.fragment.app.FragmentContainerView
@@ -64,8 +73,6 @@
         android:name="com.example.tpgrupallllllllllll.InformacionFragment"
         android:layout_width="275dp"
         android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:layout_marginTop="15dp" />
-
+        android:layout_gravity="center"/>
 
 </LinearLayout>
