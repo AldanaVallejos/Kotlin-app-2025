@@ -13,6 +13,17 @@
         android:id="@+id/myToolbar"
         layout="@layout/activity_tool_bar" />
 
+    <ImageView
+        android:id="@+id/ivDetalleJuegoImagen"
+        android:layout_width="350dp"
+        android:layout_height="150dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="15dp"
+        android:layout_marginBottom="5dp"
+        android:scaleType="centerCrop"
+        android:contentDescription="Imagen del Juego"
+        android:src="@drawable/ic_launcher_foreground" />
+
     <TextView
         android:id="@+id/tvDetalleNombre"
         android:layout_width="wrap_content"
