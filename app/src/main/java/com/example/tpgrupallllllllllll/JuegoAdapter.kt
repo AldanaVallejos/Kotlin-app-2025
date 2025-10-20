@@ -23,8 +23,6 @@ class JuegoAdapter (var juego: MutableList<Juego>, var context: Context) : Recyc
         val tituloValoracion: TextView
         val tituloPrecio: TextView
 
-        val imagen : ImageView
-
         init{
             txtJuego = view.findViewById(R.id.tv_juego)
             txtLanzamiento = view.findViewById(R.id.tv_lanzamiento)
@@ -37,7 +35,6 @@ class JuegoAdapter (var juego: MutableList<Juego>, var context: Context) : Recyc
             tituloValoracion = view.findViewById(R.id.tvLabelValoracion)
             tituloPrecio = view.findViewById(R.id.tvLabelPrecio)
             tituloLanzamiento = view.findViewById(R.id.tvLabelLanzamiento)
-            imagen = view.findViewById(R.id.imgJuego)
         }
     }
 
@@ -62,7 +59,6 @@ class JuegoAdapter (var juego: MutableList<Juego>, var context: Context) : Recyc
         holder.txtPrecio.text = item.precio
         holder.txtGenero.text = item.genero
         holder.txtGenero.text = item.genero
-        holder.imagen.setImageResource(item.imagen)
 
         holder.itemView.setOnClickListener {
             val intent = Intent(holder.itemView.context, DetalleJuegoActivity::class.java)
