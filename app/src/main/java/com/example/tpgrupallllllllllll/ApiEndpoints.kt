@@ -1,0 +1,10 @@
+package com.example.tpgrupallllllllllll
+
+import com.example.tpgrupallllllllllll.dtos.GameDTO
+import retrofit2.Call
+import retrofit2.http.GET
+
+interface ApiEndpoints {
+    @GET("api/games")
+    suspend fun getDetails() : List<GameDTO> // ahora se retorna la lista directamente: <ListGameDTO>
+}

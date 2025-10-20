@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    tools:context=".DetalleJuegoActivity"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@drawable/blue"
+    android:padding="50dp">
+
+    <include
+        android:id="@+id/myToolbar"
+        layout="@layout/activity_tool_bar" />
+
+    <ImageView
+        android:id="@+id/ivDetalleJuegoImagen"
+        android:layout_width="350dp"
+        android:layout_height="150dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="15dp"
+        android:layout_marginBottom="5dp"
+        android:scaleType="centerCrop"
+        android:contentDescription="Imagen del Juego"
+        android:src="@drawable/ic_launcher_foreground" />
+
+    <TextView
+        android:id="@+id/tvDetalleNombre"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Nombre: "
+        android:textSize="18sp"
+        android:textColor="#CCC5C5"
+        android:textStyle="italic"
+        android:paddingTop="18dp"
+        android:paddingBottom="25dp"/>
+
+    <TextView
+        android:id="@+id/tvDetalleFecha"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Fecha: "
+        android:textColor="#CCC5C5"
+        android:textStyle="italic"
+        android:textSize="16sp"/>
+
+    <TextView
+        android:id="@+id/tvDetallePrecio"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Precio: "
+        android:textColor="#CCC5C5"
+        android:textStyle="italic"
+        android:textSize="16sp"/>
+
+    <TextView
+        android:id="@+id/tvDetalleGenero"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Género: "
+        android:textColor="#CCC5C5"
+        android:textStyle="italic"
+        android:textSize="16sp"/>
+
+    <TextView
+        android:id="@+id/tvDetalleValoracion"
+        android:layout_width="wrap_content"
+        android:layout_height="28dp"
+        android:textSize="16sp"
+        android:textColor="#CCC5C5"
+        android:textStyle="italic"/>
+
+    <androidx.fragment.app.FragmentContainerView
+        android:id="@+id/fragmentDetalleJuegoContainer"
+        android:name="com.example.tpgrupallllllllllll.DetalleJuegoFragment"
+        android:layout_width="275dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="10dp" />
+
+
+    <androidx.fragment.app.FragmentContainerView
+        android:id="@+id/fragmentInformacionContainer"
+        android:name="com.example.tpgrupallllllllllll.InformacionFragment"
+        android:layout_width="275dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"/>
+
+</LinearLayout>
