@@ -56,18 +56,26 @@ class RegistroActivity : AppCompatActivity() {
                 Toast.makeText(this, "Por favor completa todos los campos", Toast.LENGTH_SHORT)
                     .show()
             } else {
+
+                // GUARDO EN BASE DE DATOS ROOM
+                val nuevoUsuario = Usuario(
+                    usuario = nombre,
+                    mail = email,
+                    password = password
+                )
+
+                // Obtengo la instancia de la base de datos
+                val db = AppDatabase.getDatabase(this)
+
+                // 2. Inserto el nuevo usuario en la base de datos
+                db.UsuarioDao().insert(nuevoUsuario)
+
                 Toast.makeText(this, "Usuario $nombre registrado correctamente", Toast.LENGTH_LONG)
                     .show()
+                
                 val intent = Intent(this, ListadoJuegos::class.java)
-                // Guardar usuario en SharedPreferences FUNCIONAMIENTO REGISTRO
-                val prefs = getSharedPreferences("usuariosApp", MODE_PRIVATE)
-                val editor = prefs.edit()
-                editor.putString(email, password) // clave = email, valor = password
-                editor.apply()
                 startActivity(intent)
-
             }
-
         }
     }
 

@@ -72,35 +72,44 @@ class LoginActivity : AppCompatActivity() {
         }
 
 
-        // INCORPORACION DEL FUNCIONAMIENTO LOGIN
+// INCORPORACION DEL FUNCIONAMIENTO LOGIN
         btnIrListadoJuegos.setOnClickListener {
-            // sharedpreferences
-            val prefs = getSharedPreferences("usuariosApp", MODE_PRIVATE)
             val usuarioIngresado = etUsuario.text.toString().trim()
             val passwordIngresado = etPassword.text.toString().trim()
 
-            //INCORPORACION DEL FUNCIONAMIENTO REGISTRO
-            // Verificar si existe en SharedPreferences
-            val passwordGuardado = prefs.getString(usuarioIngresado, null)
+            if (usuarioIngresado.isEmpty() || passwordIngresado.isEmpty()) {
+                Toast.makeText(this, "Ingresa tu usuario y contraseña", Toast.LENGTH_SHORT).show()
+                return@setOnClickListener
+            }
 
-            if(passwordGuardado != null && passwordGuardado == passwordIngresado){
-                // Guardar usuario si se marcó "recordar"
-                val editor = prefs.edit()
+            // OBTENGO LA BASE DE DATOS PARA CONSULTAR
+            val db = AppDatabase.getDatabase(this)
+
+            // Llamo a la función login del DAO
+            val usuarioEncontrado = db.UsuarioDao().login(usuarioIngresado, passwordIngresado)
+
+            if(usuarioEncontrado != null){
+                // SHARED PREFERENCES PARA EL CHECKBOX
+                val prefsRecordar = getSharedPreferences("cb_usuario", MODE_PRIVATE)
+                val editorRecordar = prefsRecordar.edit()
+
                 if(cbRecordarUsuario.isChecked){
-                    editor.putString("usuario", usuarioIngresado)
-                    editor.putBoolean("recordar", true)
+                    // Guardar usuario si se marco recordar
+                    editorRecordar.putString("usuario", usuarioIngresado)
+                    editorRecordar.putBoolean("recordar", true)
                 } else {
-                    editor.putString("usuario", "")
-                    editor.putBoolean("recordar", false)
+                    // No guardo el usuario
+                    editorRecordar.putString("usuario", "")
+                    editorRecordar.putBoolean("recordar", false)
                 }
-                editor.apply()
+                editorRecordar.apply()
 
-                // Login correcto
+                // El login es correcto
                 val intent = Intent(this, ListadoJuegos::class.java)
                 startActivity(intent)
 
             } else {
-                // Login incorrecto
+                // El login es incorrecto
                 Toast.makeText(this, "Usuario o contraseña incorrectos", Toast.LENGTH_SHORT).show()
             }
         }
