@@ -27,7 +27,7 @@
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rvJuegos"
         android:layout_width="match_parent"
-        android:layout_height="712dp"
+        android:layout_height="697dp"
         android:layout_gravity="center_vertical"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
         tools:listitem="@layout/item_juegos" />
