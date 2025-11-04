@@ -84,6 +84,6 @@
         android:name="com.example.tpgrupallllllllllll.InformacionFragment"
         android:layout_width="275dp"
         android:layout_height="wrap_content"
-        android:layout_gravity="center"/>
+        android:layout_gravity="center" />
 
 </LinearLayout>
